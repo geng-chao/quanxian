@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html  lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--引入bootstrap依赖-->
+	<link href="../static/bootsrap/css/bootstrap.css" rel="stylesheet">
+    <!--360浏览器优先以webkit内核解析-->
+    <title>show</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}" rel="stylesheet"/>
+    <link href="../static/css/main/animate.min.css" th:href="@{/css/main/animate.min.css}" rel="stylesheet"/>
+    <link href="../static/css/main/style.min862f.css" th:href="@{/css/main/style.min862f.css}" rel="stylesheet"/>
+
+
+	<script type="text/css">
+
+	.col-sm-4{
+		margin-right: 5px;
+	}
+
+		.wrapper{
+			float: right;
+			margin-right: 5px;
+		}
+
+	</script>
+</head>
+
+<body >
+
+<!--引入bootstrap依赖-->
+<script src="../static/bootsrap/js/jquery-1.12.4.js"></script>
+<script src="../static/bootsrap/js/bootstrap.js"></script>
+
+
+<!--轮播图-->
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
+	<div class="carousel-inner">
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to ="0" class="active" ></li>
+			<li data-target="#myCarousel" data-slide-to ="1"></li>
+			<li data-target="#myCarousel" data-slide-to ="2"></li>
+			<li data-target="#myCarousel" data-slide-to ="3"></li>
+			<li data-target="#myCarousel" data-slide-to ="4"></li>
+		</ol>
+
+
+		<div class="item active">
+			<a href="#">
+				<img src="https://cdn.jsdelivr.net/gh/geng-chao/PicGo/img/46.jpg" alt="第一张" width="100%" th:height="300px">
+			</a>
+		</div>
+		<div class="item">
+			<a href="#">
+				<img src="https://cdn.jsdelivr.net/gh/geng-chao/PicGo/img/20200308141801.png" alt="第二张" width="100%" th:height="300px" >
+			</a>
+		</div>
+		<div class="item">
+			<a href="#">
+				<img src="https://cdn.jsdelivr.net/gh/geng-chao/PicGo/img/C7ABE27AE6BB2B75BCBEC43160BC04CB.jpg" alt="第三张" width="100%" th:height="300px">
+			</a>
+		</div>
+		<div class="item">
+			<a href="#">
+				<img src="https://cdn.jsdelivr.net/gh/geng-chao/PicGo/img/8A3F8DA9D4FADC541159DBE542695A7C.jpg" alt="第四张" width="100%" th:height="300px">
+			</a>
+		</div>
+		<div class="item">
+			<a href="#">
+				<img src="https://cdn.jsdelivr.net/gh/geng-chao/PicGo/img/49.jpg" alt="第五张" th:width="1200px" th:height="250px">
+			</a>
+		</div>
+		<a href="#myCarousel" data-slide="prev" class="carousel-control left"><!-- ‹ -->
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		</a><!-- 左箭头 -->
+		<a href="#myCarousel" data-slide="next" class="carousel-control right"><!-- › -->
+			<span class="glyphicon glyphicon-chevron-right"></span>
+		</a><!-- 右箭头 -->
+	</div>
+
+
+
+
+    <div class="row  border-bottom white-bg dashboard-header">
+
+		<audio src="https://cdn.jsdelivr.net/gh/geng-chao/cdn@1.0/music/fei.mp3" controls="controls" th:width="500px" th:height="600px">
+			Your browser does not support the audio tag.
+		</audio>
+
+
+        <div class="col-sm-4">
+            <h4>技术选型：</h4>
+            <ol>
+                <li>核心框架：Spring Boot, SpringMVC ,Spring</li>
+                <li>安全框架：Apache Shiro。</li>
+                <li>模板引擎：Thymeleaf。表格组件基于bootstrap table组件进行封装，轻松实现数据表格。2. 弹层组件目前基于layer组件进行封装,提供了弹出、消息、提示、确认、遮罩处理等功能。</li>
+                <li>持久层框架：MyBatis。</li>
+                <li>数据库连接池：Druid。</li>
+                <li>工具类：Fastjson。</li>
+                <li>更多……</li>
+            </ol>
+        </div>
+    </div>
+
+
+    <div class="wrapper wrapper-content" id="ce">
+        <div class="row">
+
+            <div class="col-sm-4">
+                <div class="ibox float-e-margins">
+
+
+            </div>
+
+        </div>
+    </div>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/ajax/libs/layer/layer.min.js}"></script>
+    <script type="text/javascript">
+	    $('#pay-qrcode').click(function(){
+	        var html=$(this).html();
+	        parent.layer.open({
+	            title: false,
+	            type: 1,
+	            closeBtn:false,
+	            shadeClose:true,
+	            area: ['600px', 'auto'],
+	            content: html
+	        });
+	    });
+    </script>
+</div>
+</body>
+</html>

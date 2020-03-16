@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+       <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+   </head>
+   <body style="height: 100%; margin: 0">  <!--xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126-->
+       <div id="container" style="height: 100%"></div>
+   <script src="../static/js/jquery-1.12.4.min.js" th:src="@{/js/jquery-1.12.4.min.js}"></script>
+   <script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js" th:href="@{https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js}"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js" th:href="@{https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js}"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js" th:href="@{https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js}"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js" th:href="@{https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js}"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js" th:href="@{https://cdn.jsdelivr.net/npm/echarts/map/js/china.js}"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js" th:href="@{https://cdn.jsdelivr.net/npm/echarts/map/js/world.js}"></script>
+
+   <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=o9eGesSQqcQGkKaiqu1ZHAg9gkF0ShnC&coord=bd09ll" th:href="@{https://api.map.baidu.com/api?v=2.0&ak=o9eGesSQqcQGkKaiqu1ZHAg9gkF0ShnC&coord=bd09ll}"></script>
+
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js" th:href="@{https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js}"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+var uploadedDataURL = ROOT_PATH + "data-gl/asset/data/flights.json";
+
+myChart.showLoading();
+
+$.getJSON(uploadedDataURL, function(data) {
+
+    myChart.hideLoading();
+
+    function getAirportCoord(idx) {
+        return [data.airports[idx][3], data.airports[idx][4]];
+    }
+    var routes = data.routes.map(function (airline) {
+        return [
+            getAirportCoord(airline[1]),
+            getAirportCoord(airline[2])
+        ];
+    });
+
+    myChart.setOption({
+        geo3D: {
+            map: 'world',
+            shading: 'realistic',
+            silent: true,
+            environment: '#333',
+            realisticMaterial: {
+                roughness: 0.8,
+                metalness: 0
+            },
+            postEffect: {
+                enable: true
+            },
+            groundPlane: {
+                show: false
+            },
+            light: {
+                main: {
+                    intensity: 1,
+                    alpha: 30
+                },
+                ambient: {
+                    intensity: 0
+                }
+            },
+            viewControl: {
+                distance: 70,
+                alpha: 89,
+
+                panMouseButton: 'left',
+                rotateMouseButton: 'right'
+            },
+
+            itemStyle: {
+                areaColor: '#000'
+            },
+
+            regionHeight: 0.5
+        },
+        series: [{
+            type: 'lines3D',
+
+            coordinateSystem: 'geo3D',
+
+            effect: {
+                show: true,
+                trailWidth: 1,
+                trailOpacity: 0.5,
+                trailLength: 0.2,
+                constantSpeed: 5
+            },
+
+            blendMode: 'lighter',
+
+            lineStyle: {
+                width: 0.2,
+                opacity: 0.05
+            },
+
+            data: routes
+        }]
+    });
+
+    window.addEventListener('keydown', function () {
+        myChart.dispatchAction({
+            type: 'lines3DToggleEffect',
+            seriesIndex: 0
+        });
+    });
+});;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>
