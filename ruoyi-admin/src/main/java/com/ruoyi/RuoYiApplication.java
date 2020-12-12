@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import java.sql.SQLOutput;
 
 /**
- * 启动程序
+ * 启动程序 这是主程序入口
  * 
  * @author ruoyi
  */
