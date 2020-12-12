@@ -21,13 +21,13 @@ public class Global
     /** 版权年份 */
     private static String copyrightYear;
 
-    /** 实例演示开关 */
+    /** 实例演示开关 。。。。*/
     private static boolean demoEnabled;
 
-    /** 上传路径 */
+    /** 上传路径 。。。*/
     private static String profile;
 
-    /** 获取地址开关 */
+    /** 获取地址开关。。 */
     private static boolean addressEnabled;
 
     public static String getName()
