@@ -1,5 +1,5 @@
 -- ----------------------------
--- 1、存储每一个已配置的 jobDetail 的详细信息
+-- 1、存储每一个已配置的 jobDetail 的详细信息.
 -- ----------------------------
 drop table if exists QRTZ_JOB_DETAILS;
 create table QRTZ_JOB_DETAILS (
@@ -42,7 +42,7 @@ create table QRTZ_TRIGGERS (
 ) engine=innodb;
 
 -- ----------------------------
--- 3、 存储简单的 Trigger，包括重复次数，间隔，以及已触发的次数
+-- 3、 存储简单的 Trigger，包括重复次数，间隔，以及已触发的次数.
 -- ----------------------------
 drop table if exists QRTZ_SIMPLE_TRIGGERS;
 create table QRTZ_SIMPLE_TRIGGERS (
@@ -71,7 +71,7 @@ create table QRTZ_CRON_TRIGGERS (
 ) engine=innodb;
 
 -- ----------------------------
--- 5、 Trigger 作为 Blob 类型存储(用于 Quartz 用户用 JDBC 创建他们自己定制的 Trigger 类型，JobStore 并不知道如何存储实例的时候)
+-- 5、 Trigger 作为 Blob 类型存储(用于 Quartz 用户用 JDBC 创建他们自己定制的 Trigger 类型，JobStore 并不知道如何存储实例的时候).
 -- ---------------------------- 
 drop table if exists QRTZ_BLOB_TRIGGERS;
 create table QRTZ_BLOB_TRIGGERS (
@@ -95,7 +95,7 @@ create table QRTZ_CALENDARS (
 ) engine=innodb;
 
 -- ----------------------------
--- 7、 存储已暂停的 Trigger 组的信息
+-- 7、 存储已暂停的 Trigger 组的信息.
 -- ---------------------------- 
 drop table if exists QRTZ_PAUSED_TRIGGER_GRPS;
 create table QRTZ_PAUSED_TRIGGER_GRPS (
@@ -105,7 +105,7 @@ create table QRTZ_PAUSED_TRIGGER_GRPS (
 ) engine=innodb;
 
 -- ----------------------------
--- 8、 存储与已触发的 Trigger 相关的状态信息，以及相联 Job 的执行信息
+-- 8、 存储与已触发的 Trigger 相关的状态信息，以及相联 Job 的执行信息.
 -- ---------------------------- 
 drop table if exists QRTZ_FIRED_TRIGGERS;
 create table QRTZ_FIRED_TRIGGERS (
