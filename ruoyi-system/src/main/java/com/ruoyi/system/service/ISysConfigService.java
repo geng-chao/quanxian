@@ -4,7 +4,7 @@ import java.util.List;
 import com.ruoyi.system.domain.SysConfig;
 
 /**
- * 参数配置 服务层
+ * 参数配置 服务层。
  * 
  * @author ruoyi
  */
@@ -20,8 +20,8 @@ public interface ISysConfigService
 
     public SysConfig selectConfigById(Long configId);
 
-    /**
-     * 根据键名查询参数配置信息
+    /**。。
+     * 根据键名查询参数配置信息。
      * 
      * @param configKey 参数键名
      * @return 参数键值
