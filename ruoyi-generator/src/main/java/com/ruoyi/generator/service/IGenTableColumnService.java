@@ -11,7 +11,7 @@ import com.ruoyi.generator.domain.GenTableColumn;
 public interface IGenTableColumnService
 {
     /**
-     * 查询业务字段列表
+     * 查询业务字段列表查询一些集合
      * 
      * @param genTableColumn 业务字段信息
      * @return 业务字段集合
@@ -22,7 +22,7 @@ public interface IGenTableColumnService
      * 新增业务字段
      * 
      * @param genTableColumn 业务字段信息
-     * @return 结果
+     * @return 结果 public int insertGenTableColumn(GenTableColumn genTableColumn);
      */
     public int insertGenTableColumn(GenTableColumn genTableColumn);
 
